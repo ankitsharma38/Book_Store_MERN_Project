@@ -1,0 +1,4 @@
+/* it is use for no over-lapping the book at header */
+header, nav{
+     z-index: 100001 !important ;
+}
