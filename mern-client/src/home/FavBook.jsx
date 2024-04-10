@@ -15,11 +15,10 @@ const FavBook = () => {
           <h2 className="text-5xl font-bold my-5 md:w-3/4 leading-snug">
             Find Your Favorite <br /><span className="text-blue-700">Book Here!</span>
           </h2>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
-            repellendus consequatur odio quis, recusandae enim! At dolorum labore
-            quasi dignissimos iusto explicabo consectetur modi, minima voluptatum
-            beatae porro, quas itaque!
+          <p text-bold>
+          Unlock great book deals or cash in on your collection. 
+          Buy and sell hassle-free, getting top prices every time on our platform.
+          "Experience a seamless exchange for book lovers, where buying and selling is as easy as turning a page."
             </p>
             {/* stats */}
             <div className="flex flex-col sm:flex-row justify-between gap-6 md:w-3/4 my-14 ">

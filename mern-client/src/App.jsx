@@ -9,7 +9,7 @@ function App() {
         <NavBar/>
         <div className='min-h-screen'>
           <Outlet/>
-        </div>
+        </div> 
         <MyFooter/>
 
     </>
