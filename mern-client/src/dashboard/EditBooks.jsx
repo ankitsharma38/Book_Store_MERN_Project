@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import {  useParams,  useLoaderData } from "react-router-dom"
+import {  useParams, useLoaderData   } from "react-router-dom"
 import { Button, Checkbox, Label, TextInput, Textarea } from "flowbite-react";
 
 
 const EditBooks = () => {
   const { id } = useParams();
-  const { bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL} = useLoaderData(id);
+  const { bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL} = useLoaderData();
 
   const bookCategories = [
     "Fiction",
@@ -13,7 +13,7 @@ const EditBooks = () => {
     "Mistry",
     "Programming",
     "Fantasy",
-    "Science Fiction",
+    "Science Fiction", 
     "Horror",
     "Bibliography",
     "BioGraphy",
@@ -27,9 +27,7 @@ const EditBooks = () => {
     "Art & Design",
   ];
 
-  const [selectedBookCategory, setSelectedBookCategory] = useState(
-    bookCategories[0]
-  );
+  const [selectedBookCategory, setSelectedBookCategory] = useState(bookCategories[0]);
   const handleChangeSelectedValue = (event) => {
     console.log(event.target.value);
     setSelectedBookCategory(event.target.value);
@@ -47,22 +45,26 @@ const EditBooks = () => {
     const bookDescription = form.bookDescription.value;
     const bookPDFURL = form.bookPDFURL.value;
 
-    const bookObj = {
-      bookTitle,
-      authorName,
-      imageURL,
-      category,
-      bookDescription,
-      bookPDFURL,
-    };
-    console.log(bookObj);    
+    const updateBookObj = {bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL };
+    //console.log(bookObj);    
+    //Update book data 
+    fetch(`http://localhost:5000/book/${id}`,{
+     method: "PATCH",
+     headers:{
+          "Content-Type":"application/json"
+     },
+     body: JSON.stringify(updateBookObj)
+    }).then(res => res.json()).then(data => {
+     //console.log(data);
+     alert("Book is Updated successfully!!")
+   })
+
   }
   return (
     <div className="px-4 my-12">
       <h2 className="mb-8 text-3xl font-bold ">Update the book data</h2>
 
-      <form
-        onSubmit={handleUpdate} className="flex lg:w-[1000px] flex-col flex-wrap gap-4">
+      <form onSubmit={handleUpdate} className="flex lg:w-[1000px] flex-col flex-wrap gap-4">
         {/* First Row */}
         <div className="flex gap-8">
           {/* Book Title */}
@@ -168,7 +170,7 @@ const EditBooks = () => {
 
         {/* Submit Button  */}
         <Button className="mt-5" type="submit">
-          Upload Book
+          Update Book
         </Button>
       </form>
     </div>
