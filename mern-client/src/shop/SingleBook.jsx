@@ -2,13 +2,20 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 
 const SingleBook = () => {
-     const {_id, bookTitle, imageURL } = useLoaderData();
+     const {_id, bookTitle, imageURL,authorName } = useLoaderData();
   return (
+    <>
     <div className='mt-28 px-4 lg:px-24'>
           <img src={imageURL} alt="" className='h-80' />
           <h2>{bookTitle}</h2>
+          <h3>{authorName}</h3>
 
     </div>  
+    <div>
+    
+
+    </div>
+    </>
   )
 }
 
