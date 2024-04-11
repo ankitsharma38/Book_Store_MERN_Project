@@ -11,7 +11,7 @@ import userImg from '../assets/me2.png'
 export const SideBar = () => {
   return (
     <Sidebar aria-label="Sidebar with content separator example">
-      <Sidebar.Logo href="/" img={userImg} imgAlt="Flowbite logo">
+      <Sidebar.Logo href="/" img={userImg} imgAlt="ME">
         Flowbite
       </Sidebar.Logo>
       <Sidebar.Items>

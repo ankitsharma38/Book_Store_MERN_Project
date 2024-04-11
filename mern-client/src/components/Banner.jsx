@@ -10,11 +10,9 @@ const Banner = () => {
           <h2 className="text-5xl font-bold leading-snug text black">
             Buy and Sell Your Books <span className="text-orange-500">for the Best Prices</span>
           </h2>
-          <p className="md:w-4/5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-            aliquid id pariatur velit at obcaecati, quia ea deleniti tempora
-            recusandae quam enim temporibus optio rerum aliquam error sit
-            nostrum odio!
+          <p className="md:w-4/5 text-2xl ">
+          <i>Explore a world of endless possibilities with our online book marketplace, where buying and selling your
+           beloved books has never been easier.</i>
           </p>
           
           <div>

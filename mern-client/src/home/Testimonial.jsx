@@ -1,24 +1,27 @@
 import React from "react";
 import Slider from 'react-slick';
+import me2 from "../assets/me2.png";
+import Gau from  "../assets/gaurav.png";
+import Malini from  "../assets/profile.jpg";
 
 const testimonialData = [
   {
     id: 1,
-    name: "Victor",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/101/101",
+    name: "Ankit Sharma",
+    text: "This book completely captivated me from start to finish! The characters were so well-developed and the plot kept me guessing until the very end. I couldn't put it down!",
+    img: me2,
   },
   {
-    id: 1,
-    name: "Satya Narayan",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/102/102",
+    id: 2,
+    name: "Malini ",
+    text: "As a longtime fan of the genre, I can confidently say that this book stands out among the rest. The writing style is engaging, the pacing is perfect...Highly recommend!",
+    img: Malini, 
   },
   {
-    id: 1,
-    name: "Sachin Tendulkar",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/103/103",
+    id: 3,
+    name: "Gaurav RockStar",
+    text: "I picked up this book on a whim and I'm so glad I did! It's a rollercoaster of emotions that left me feeling eager for more. A must-read for anyone looking for a gripping story!",
+    img: Gau,
   },
 ];
 
@@ -62,47 +65,29 @@ const Testimonial = () => {
     ],
   };
   return (
-    <>
-    <hr className="my-4 border-b-4 border-orange-500" />
+    <div className="w-full">
+      <hr className="my-4 border-b-4 border-orange-500" />
       <div data-aos="fade-up" data-aos-duration="300" className="py-0">
-        <div className="container  ">
+        <div className="container mx-auto">
           <div className="text-center mb-4 max-w-600px mx-auto">
-
             <h2 className="text-5xl text-center font-bold">Our Customers</h2>
           </div>
-          <div
-            data-aos="zoom-in"
-            data-aos-duration="300"
-            className=" grid grid-cols-1 max-w-600px  mx-auto gap-6"
-          >
-            
+          <div data-aos="zoom-in" data-aos-duration="300" className="grid grid-cols-1 max-w-600px mx-auto gap-6">
             <Slider {...settings}>
               {testimonialData.map((data) => {
                 return (
                   <div className="my-6">
-                    <div
-                      key={data.id}
-                      className=" flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-blue-100 bg-primary/10 relative"
-                    >
+                    <div key={data.id} className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-blue-100 bg-primary/10 relative">
                       <div>
-                        <img
-                          className="rounded-full w-20 h-20"
-                          src={data.img}
-                          alt=""
-                        />
+                        <img className="rounded-full w-20 h-20" src={data.img} alt="" />
                       </div>
                       <div className="flex items-center gap-4">
                         <div>
                           <p className="text-gray-500 text-sm">{data.text}</p>
-                          <h1 className="text-xl font-bold text-black/80 dark:text-light">
-                            {data.name}
-                          </h1>
+                          <h1 className="text-xl font-bold text-black/80 dark:text-light">{data.name}</h1>
                         </div>
                       </div>
-
-                      <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
-                        ,,
-                      </p>
+                      <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">,,</p>
                     </div>
                   </div>
                 );
@@ -111,7 +96,7 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
