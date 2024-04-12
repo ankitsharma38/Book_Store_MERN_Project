@@ -1,5 +1,6 @@
 import React, { useEffect,useState} from 'react'
 import { Link } from 'react-router-dom';
+import Logo from  "../assets/bookworm.png";
 //icon
 import { FaBarsStaggered,FaBookOpen, FaXmark } from "react-icons/fa6";
 
@@ -42,7 +43,10 @@ const NavBar = () => {
           <div className='flex justify-between items-center text-base gap-8'>
                {/*Logo */}
                <Link to ="/" className='text-2xl font-bold text-blue-700 flex items-center gap-2'>
-                    <FaBookOpen className='inline-block' /> Book Heaven!</Link>
+                    <FaBookOpen className='inline-block' /> Book Heaven!
+                    {/* <img src={Logo} className='w-80' /> */}
+                    
+                    </Link> 
 
                {/*Nav Items for large devices */}
                <ul className='md:flex space-x-12 hidden'>
