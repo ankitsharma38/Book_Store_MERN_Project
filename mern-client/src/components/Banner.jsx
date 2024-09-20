@@ -9,7 +9,7 @@ const Banner = () => {
         {/* left Side */}
         <div className="md:w-1/2 space-y-8 h-full">
           <h2 className="text-5xl font-bold leading-snug text black">
-            Buy and Sell Your Books <span className="text-orange-500">for the Best Prices</span>
+            Buy And Sell Your Books <span className="text-orange-500">for the Best Prices</span>
           </h2>
           <p className="md:w-4/5 text-2xl ">
           Explore a world of endless possibilities with our online book marketplace, where buying and selling your
