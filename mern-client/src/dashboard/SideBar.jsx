@@ -12,7 +12,7 @@ export const SideBar = () => {
   return (
     <Sidebar aria-label="Sidebar with content separator example">
       <Sidebar.Logo href="/" img={userImg} imgAlt="ME">
-        Flowbite
+        Home 
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>

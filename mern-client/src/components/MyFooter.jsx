@@ -33,7 +33,7 @@ const MyFooter = () => {
            </Footer.LinkGroup>
          </div>
          <div>
-           <Footer.Title title="download" />
+           <Footer.Title title="download" />  
            <Footer.LinkGroup col>
              <Footer.Link href="#">iOS</Footer.Link>
              <Footer.Link href="#">Android</Footer.Link>

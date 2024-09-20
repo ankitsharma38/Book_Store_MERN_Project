@@ -75,7 +75,7 @@ const Hero = ({ handleOrderPopup }) => {
                 data-aos-duration="500"
                 data-aos-delay="100"
                 className="text-sm "
-              >
+              > 
                 {description}
               </p>
               <div>
@@ -121,7 +121,6 @@ const Hero = ({ handleOrderPopup }) => {
         </div>
       </div>
       <hr className=" border-b-4 border-orange-500" />
-
     </>
   );
 };
