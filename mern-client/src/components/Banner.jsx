@@ -13,7 +13,7 @@ const Banner = () => {
           </h2>
           <p className="md:w-4/5 text-2xl ">
           Explore a world of endless possibilities with our online book marketplace, where buying and selling your
-           beloved books has never been easier.
+           beloved books has never been easier...
           </p>
           
           <div>
