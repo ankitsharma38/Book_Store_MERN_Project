@@ -26,7 +26,7 @@ const Banner = () => {
         </div>
         
 
-        {/* Right Side */}
+        {/* Right Side got it brohhh */}
         <div>
           <BannerCard></BannerCard>
         </div>
