@@ -28,10 +28,10 @@ const Dashboard = () => {
         <div className="bg-white p-5 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-3">Sales Summary</h2>
           <p>Total Sales: {salesSummary.totalSales}</p>
-          <p>Total Revenue: ${salesSummary.totalRevenue}</p>
+          <p>Total Revenue: Rs: {salesSummary.totalRevenue}</p>
           <p>Bestselling Book: {salesSummary.bestsellingBook.title} by {salesSummary.bestsellingBook.author}</p>
           <p>Sales: {salesSummary.bestsellingBook.sales}</p>
-          <p>Revenue: ${salesSummary.bestsellingBook.revenue}</p>
+          <p>Revenue: Rs: {salesSummary.bestsellingBook.revenue}</p>
         </div>
 
         {/* Inventory Management Section */}
@@ -46,7 +46,7 @@ const Dashboard = () => {
           <ul>
             {recentOrders.map(order => (
               <li key={order.orderId}>
-                Order #{order.orderId} - {order.customerName} (${order.orderTotal})
+                Order #{order.orderId} - {order.customerName} (Rs: {order.orderTotal})
               </li>
             ))}
           </ul>
