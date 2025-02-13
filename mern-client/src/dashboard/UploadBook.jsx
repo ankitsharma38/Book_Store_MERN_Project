@@ -41,6 +41,8 @@ const UploadBook = () => {
     const category = form.categoryName.value;
     const bookDescription = form.bookDescription.value;
     const bookPDFURL = form.bookPDFURL.value;
+    const bookPrice = form.bookPrice.value;
+
 
     const bookObj = {
       bookTitle,
@@ -49,6 +51,7 @@ const UploadBook = () => {
       category,
       bookDescription,
       bookPDFURL,
+      bookPrice,
     };
     console.log(bookObj);
 
@@ -156,8 +159,9 @@ const UploadBook = () => {
           />
         </div>
 
-        {/* Book  PDF Link */}
-        <div>
+        <div className="flex gap-8">
+          {/* Book  PDF Link */}
+        <div className="lg:w-1/2"> 
           <div className="mb-2 block">
             <Label htmlFor="bookPDFURL" value="Book PDF URL " />
           </div>
@@ -168,6 +172,21 @@ const UploadBook = () => {
             placeholder="book pdf url"
             required
           />
+        </div>
+
+        {/* Book Price Field */}
+        <div className="lg:w-1/2">
+          <div className="mb-2 block">
+            <Label htmlFor="bookPrice" value="Book Price" />
+          </div>
+          <TextInput
+            id="bookPrice"
+            name="bookPrice"
+            type="text"
+            placeholder="Enter Book Price"
+            required
+          />
+        </div>
         </div>
 
         {/* Submit Button  */}
