@@ -1,11 +1,18 @@
-import React, { useState } from "react"
-import {  useParams, useLoaderData   } from "react-router-dom"
+import React, { useState } from "react";
+import { useParams, useLoaderData } from "react-router-dom";
 import { Button, Checkbox, Label, TextInput, Textarea } from "flowbite-react";
-
 
 const EditBooks = () => {
   const { id } = useParams();
-  const { bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL} = useLoaderData();
+  const {
+    bookTitle,
+    authorName,
+    imageURL,
+    category,
+    bookDescription,
+    bookPDFURL,
+    bookPrice,
+  } = useLoaderData();
 
   const bookCategories = [
     "Fiction",
@@ -13,7 +20,7 @@ const EditBooks = () => {
     "Mistry",
     "Programming",
     "Fantasy",
-    "Science Fiction", 
+    "Science Fiction",
     "Horror",
     "Bibliography",
     "BioGraphy",
@@ -27,7 +34,9 @@ const EditBooks = () => {
     "Art & Design",
   ];
 
-  const [selectedBookCategory, setSelectedBookCategory] = useState(bookCategories[0]);
+  const [selectedBookCategory, setSelectedBookCategory] = useState(
+    bookCategories[0]
+  );
   const handleChangeSelectedValue = (event) => {
     console.log(event.target.value);
     setSelectedBookCategory(event.target.value);
@@ -44,27 +53,40 @@ const EditBooks = () => {
     const category = form.categoryName.value;
     const bookDescription = form.bookDescription.value;
     const bookPDFURL = form.bookPDFURL.value;
+    const bookPrice = form.bookPrice.value;
 
-    const updateBookObj = {bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL };
-    //console.log(bookObj);    
-    //Update book data 
-    fetch(`http://localhost:5000/book/${id}`,{
-     method: "PATCH",
-     headers:{
-          "Content-Type":"application/json"
-     },
-     body: JSON.stringify(updateBookObj)
-    }).then(res => res.json()).then(data => {
-     //console.log(data);
-     alert("Book is Updated successfully!!")
-   })
-
-  }
+    const updateBookObj = {
+      bookTitle,
+      authorName,
+      imageURL,
+      category,
+      bookDescription,
+      bookPDFURL,
+      bookPrice,
+    };
+    //console.log(bookObj);
+    //Update book data
+    fetch(`http://localhost:5000/book/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateBookObj),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data);
+        alert("Book is Updated successfully!!");
+      });
+  };
   return (
     <div className="px-4 my-12">
       <h2 className="mb-8 text-3xl font-bold ">Update the book data</h2>
 
-      <form onSubmit={handleUpdate} className="flex lg:w-[1000px] flex-col flex-wrap gap-4">
+      <form
+        onSubmit={handleUpdate}
+        className="flex lg:w-[1000px] flex-col flex-wrap gap-4"
+      >
         {/* First Row */}
         <div className="flex gap-8">
           {/* Book Title */}
@@ -125,7 +147,6 @@ const EditBooks = () => {
               className="w-full rounded"
               value={selectedBookCategory}
               onChange={handleChangeSelectedValue}
-
             >
               {bookCategories.map((option) => (
                 <option key={option} value={option}>
@@ -153,8 +174,9 @@ const EditBooks = () => {
           />
         </div>
 
-        {/* Book  PDF Link */}
-        <div>
+        {/* Fourth Row (Book  PDF Link) */}
+        <div className="flex gap-8">
+        <div className="lg:w-1/2">
           <div className="mb-2 block">
             <Label htmlFor="bookPDFURL" value="Book PDF URL " />
           </div>
@@ -167,6 +189,21 @@ const EditBooks = () => {
             defaultValue={bookPDFURL}
           />
         </div>
+        {/* Book Price Field */}
+        <div className="lg:w-1/2">
+          <div className="mb-2 block">
+            <Label htmlFor="bookPrice" value="Book Price" />
+          </div>
+          <TextInput
+            id="bookPrice"
+            name="bookPrice"
+            type="text"
+            placeholder="Enter Book Price"
+            required
+            defaultValue={bookPrice}
+          />
+        </div>
+        </div>
 
         {/* Submit Button  */}
         <Button className="mt-5" type="submit">
@@ -178,4 +215,3 @@ const EditBooks = () => {
 };
 
 export default EditBooks;
-  
