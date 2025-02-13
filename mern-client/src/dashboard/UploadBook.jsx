@@ -159,34 +159,34 @@ const UploadBook = () => {
           />
         </div>
 
+        {/*  Fourth Row Book  PDF Link */}      
         <div className="flex gap-8">
-          {/* Book  PDF Link */}
-        <div className="lg:w-1/2"> 
-          <div className="mb-2 block">
-            <Label htmlFor="bookPDFURL" value="Book PDF URL " />
+          <div className="lg:w-1/2"> 
+            <div className="mb-2 block">
+              <Label htmlFor="bookPDFURL" value="Book PDF URL " />
+            </div>
+            <TextInput
+              id="bookPDFURL"
+              name="bookPDFURL"
+              type="text"
+              placeholder="book pdf url"
+              required
+            />
           </div>
-          <TextInput
-            id="bookPDFURL"
-            name="bookPDFURL"
-            type="text"
-            placeholder="book pdf url"
-            required
-          />
-        </div>
 
-        {/* Book Price Field */}
-        <div className="lg:w-1/2">
-          <div className="mb-2 block">
-            <Label htmlFor="bookPrice" value="Book Price" />
+          {/* Book Price Field */}
+          <div className="lg:w-1/2">
+            <div className="mb-2 block">
+              <Label htmlFor="bookPrice" value="Book Price" />
+            </div>
+            <TextInput
+              id="bookPrice"
+              name="bookPrice"
+              type="text"
+              placeholder="Enter Book Price"
+              required
+            />
           </div>
-          <TextInput
-            id="bookPrice"
-            name="bookPrice"
-            type="text"
-            placeholder="Enter Book Price"
-            required
-          />
-        </div>
         </div>
 
         {/* Submit Button  */}
