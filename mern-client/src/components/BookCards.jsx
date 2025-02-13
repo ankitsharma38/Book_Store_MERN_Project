@@ -61,7 +61,8 @@ const BookCards = ({headline, books}) => {
                               <p>{book.authorName}</p>
                          </div>
                          <div>
-                              <p>₹370.00</p>
+                              {/* <p>₹370.00</p> */}
+                              <p>{"₹ "+book.bookPrice+"/-"}</p>
                          </div>
                     </div>
                </Link>
