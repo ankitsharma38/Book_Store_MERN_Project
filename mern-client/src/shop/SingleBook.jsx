@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const SingleBook = () => {
   // Destructuring book details from useLoaderData hook
-  const {_id, bookTitle, authorName, imageURL, category, bookDescription, bookPDFURL} = useLoaderData();
+  const {_id, bookTitle, authorName, bookPrice, imageURL, category, bookDescription, bookPDFURL} = useLoaderData();
 
   return (
     <div className='mt-20 ml-10 flex justify-center'>
@@ -23,6 +23,9 @@ const SingleBook = () => {
 
         {/* Book Category */}
         <h4 className='text-gray-700 mb-2'><u>Category: {category}</u></h4>
+
+        {/* Price Section */}
+        <p className='text-black text-2xl mb-4 font-bold'>₹ {bookPrice}/-</p>
 
         {/* Book Description */}
         <p className='text-gray-600 mb-4'>{bookDescription}</p>
