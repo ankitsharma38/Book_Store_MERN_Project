@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "^10.10.0",
+    "firebase": "^11.3.1",
     "flowbite-react": "^0.7.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
@@ -20,7 +20,7 @@
     "react-router-dom": "^6.22.3",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
-    "sort-by": "^1.2.0",
+    "sort-by": "^0.0.2",
     "swiper": "^11.0.7"
   },
   "devDependencies": {
