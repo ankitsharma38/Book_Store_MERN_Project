@@ -13,7 +13,7 @@ const testimonialData = [
   },
   {
     id: 2,
-    name: "Malini ",
+    name: "Simran ",
     text: "As a longtime fan of the genre, I can confidently say that this book stands out among the rest. The writing style is engaging, the pacing is perfect...Highly recommend!",
     img: Malini, 
   },

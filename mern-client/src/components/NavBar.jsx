@@ -1,12 +1,16 @@
-import React, { useEffect,useState} from 'react'
+import React, { useContext, useEffect,useState} from 'react'
 import { Link } from 'react-router-dom';
 import Logo from  "../assets/bookworm.png";
 //icon
 import { FaBarsStaggered,FaBookOpen, FaXmark } from "react-icons/fa6";
+import { AuthContext } from '../context/AuthProvider';
 
 const NavBar = () => {
      const [isMenuOpen, setMenuOpen]= useState(false);
      const [isSticky,  setIsSticky]= useState(false);
+
+     const {user} =useContext(AuthContext);
+     console.log(user);
 
      //toggle menu
      const toggleMenu = () => {
@@ -63,6 +67,9 @@ const NavBar = () => {
                {/* BUTTON for lg devices */}
                <div className='space-x-12 hidden lg:flex items-center'>
                     <button><FaBarsStaggered className='w-5 hover:text-blue-700'/></button>
+                    {/* {
+                         user? user.email : ""
+                    } */}
                </div>
 
 
