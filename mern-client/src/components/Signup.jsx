@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg"
 
 const Signup = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser, loginWithGoogle} = useContext(AuthContext);
   const [error, serError] = useState("error");
 
   const location = useLocation();
@@ -33,7 +33,14 @@ const Signup = () => {
   }
   //SignUp using google account 
   const handleRegister = () => {
-    
+    loginWithGoogle().then((result) => {
+      const user = result.user;
+      navigate(from, {replace: true})
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      serError(errorMessage)
+    });
   }
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
