@@ -1,8 +1,8 @@
 import React from "react";
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import me2 from "../assets/me2.png";
-import Gau from  "../assets/gaurav.png";
-import Malini from  "../assets/profile.jpg";
+import Gau from "../assets/gaurav.png";
+import Malini from "../assets/profile.jpg";
 
 const testimonialData = [
   {
@@ -15,7 +15,7 @@ const testimonialData = [
     id: 2,
     name: "Simran ",
     text: "As a longtime fan of the genre, I can confidently say that this book stands out among the rest. The writing style is engaging, the pacing is perfect...Highly recommend!",
-    img: Malini, 
+    img: Malini,
   },
   {
     id: 3,
@@ -26,12 +26,11 @@ const testimonialData = [
 ];
 
 const Testimonial = () => {
-  var settings = {
+  const settings = {
     dots: true,
     arrows: false,
     infinite: true,
     speed: 500,
-    // slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -64,6 +63,7 @@ const Testimonial = () => {
       },
     ],
   };
+
   return (
     <div className="w-full">
       <hr className="my-4 border-b-4 border-orange-500" />
@@ -74,24 +74,22 @@ const Testimonial = () => {
           </div>
           <div data-aos="zoom-in" data-aos-duration="300" className="grid grid-cols-1 max-w-600px mx-auto gap-6">
             <Slider {...settings}>
-              {testimonialData.map((data) => {
-                return (
-                  <div className="my-6">
-                    <div key={data.id} className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-blue-100 bg-primary/10 relative">
-                      <div>
-                        <img className="rounded-full w-20 h-20" src={data.img} alt="" />
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div>
-                          <p className="text-gray-500 text-sm">{data.text}</p>
-                          <h1 className="text-xl font-bold text-black/80 dark:text-light">{data.name}</h1>
-                        </div>
-                      </div>
-                      <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">,,</p>
+              {testimonialData.map((data) => (
+                <div key={data.id} className="my-6">
+                  <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl bg-blue-100 bg-primary/10 relative">
+                    <div>
+                      <img className="rounded-full w-20 h-20" src={data.img} alt="" />
                     </div>
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <p className="text-gray-500 text-sm">{data.text}</p>
+                        <h1 className="text-xl font-bold text-black/80 dark:text-light">{data.name}</h1>
+                      </div>
+                    </div>
+                    <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">,,</p>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </Slider>
           </div>
         </div>
