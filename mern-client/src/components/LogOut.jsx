@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import NavBar from "./NavBar";
 
 const LogOut = () => {
   const { logOut } = useContext(AuthContext);
@@ -22,7 +23,12 @@ const LogOut = () => {
   };
 
   return (
+    
+
     <div className="relative h-screen flex items-center justify-center">
+     <div className="bg-slate-600 !important"><NavBar /></div>
+
+      
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
