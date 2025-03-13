@@ -1,99 +1,113 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
-import googleLogo from "../assets/google-logo.svg"
+import googleLogo from "../assets/google-logo.svg";
+import { FaEnvelope, FaLock } from "react-icons/fa"; // Importing icons
 
 const Signup = () => {
-  const {createUser, loginWithGoogle} = useContext(AuthContext);
-  const [error, serError] = useState("error");
+  const { createUser, loginWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
-
   const from = location.state?.from?.pathname || "/";
 
-  const handleSignUp =(event)=>{
+  const handleSignUp = (event) => {
     event.preventDefault();
-    const form =event.target;
+    const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    createUser(email, password).then((userCredential) => {
-      //SignUp
-      const user = userCredential.user;
-      alert("Sign Up Successfully!");
-      navigate(from, {replace: true})
+    createUser(email, password)
+      .then(() => {
+        alert("Sign Up Successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      serError(errorMessage)
-    });
-  }
-  //SignUp using google account 
   const handleRegister = () => {
-    loginWithGoogle().then((result) => {
-      const user = result.user;
-      navigate(from, {replace: true})
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      serError(errorMessage)
-    });
-  }
+    loginWithGoogle()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-300 to-orange-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-        <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-          <div className="max-w-md mx-auto">
-            <div>
-              <h1 className="text-2xl font-semibold">
-                Sign Up 
-              </h1>
-            </div>
-            <div className="divide-y divide-gray-200">
-              <form onSubmit={handleSignUp} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                <div className="relative">
-                  <input
-                    id="email"
-                    name="email"
-                    type="text"
-                    className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                    placeholder="Email address"
-                  />
-                </div>
-                <div className="relative">
-                  <input
-                     id="password"
-                    name="password"
-                    type="password"
-                    className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                    placeholder="Password"
-                  />
-                </div>
-                <p>If you have an account. Please <Link to="/login" className="text-blue-600 underline"> Login </Link> Here </p>
-                <div className="relative">
-                  <button className="bg-blue-500 text-white rounded-md px-6 py-2">
-                    Sign Up
-                  </button>
-                </div>
-              </form>
-            </div>
+    <div className="min-h-screen flex items-center justify-center relative">
+      {/* Background Image with Blur & Transparency */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-35"
+        style={{
+          backgroundImage: `url('https://ik.imagekit.io/julyhwpbw/DALL_E%202025-03-14%2002.28.49%20-%20A%20seamless%20black%20and%20white%20pattern%20background%20in%20landscape%20orientation%20featuring%20various%20book-related%20symbols%20such%20as%20open%20books,%20closed%20books,%20stacks.webp?updatedAt=1741899584571')`,
+        }}
+      ></div>
 
-            <hr />
-            <div className="flex w-full items-center flex-col mt-5 gap-3">
-              <button onClick={handleRegister} className="block"><img src={googleLogo} alt="logo" className="w-12 h-12 inline-block"/>Login with Google</button>
-            </div>
+      {/* Signup Card */}
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md relative z-10">
+        <h2 className="text-3xl font-bold text-center ">
+          Join Book Heaven 📖
+        </h2>
 
-
+        <form onSubmit={handleSignUp} className="space-y-4">
+          <div className="relative">
+            <FaEnvelope className="absolute left-3 top-3 text-gray-500" />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:outline-none"
+              placeholder="Email address"
+              required
+            />
           </div>
+          <div className="relative">
+            <FaLock className="absolute left-3 top-3 text-gray-500" />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:outline-none"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+
+          <p className="text-sm text-center">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-600 font-semibold">
+              Login Here
+            </Link>
+          </p>
+
+          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg transition duration-300">
+            Sign Up
+          </button>
+        </form>
+
+        <div className="flex items-center my-4">
+          <hr className="flex-grow border-gray-300" />
+          <span className="px-3 text-gray-500 text-sm">OR</span>
+          <hr className="flex-grow border-gray-300" />
         </div>
+
+        <button
+          onClick={handleRegister}
+          className="flex items-center justify-center w-full border border-gray-300 rounded-lg py-2 transition duration-300 hover:bg-gray-200"
+        >
+          <img src={googleLogo} alt="Google Logo" className="w-6 h-6 mr-2" />
+          Sign Up with Google
+        </button>
       </div>
     </div>
   );
 };
 
 export default Signup;
-``
