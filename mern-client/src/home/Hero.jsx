@@ -41,20 +41,19 @@ const Hero = ({ handleOrderPopup }) => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    // height: "100%",
     width: "100%",
   };
 
   return (
     <>
-            <hr className=" border-b-4 border-orange-500" />
+      <hr className="border-b-4 border-orange-500" />
       <div
         className="min-h-550 sm:min-h-650 bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200"
         style={bgImage}
       >
         <div className="container pb-8 sm:pb-0">
           <div className="grid grid-cols-1 sm:grid-cols-2">
-            {/* text content section */}
+            {/* Text content section */}
             <div
               data-aos-once="true"
               className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1"
@@ -66,7 +65,7 @@ const Hero = ({ handleOrderPopup }) => {
                 className="text-5xl sm:text-6xl lg:text-7xl font-bold"
               >
                 {title}
-                <p class="bg-clip-text text-transparent bg-gradient-to-b from-primary text-right text-sm to-secondary">
+                <p className="bg-clip-text text-transparent bg-gradient-to-b from-primary text-right text-sm to-secondary">
                   by Anonymous
                 </p>{" "}
               </h1>
@@ -74,8 +73,8 @@ const Hero = ({ handleOrderPopup }) => {
                 data-aos="slide-up"
                 data-aos-duration="500"
                 data-aos-delay="100"
-                className="text-sm "
-              > 
+                className="text-sm"
+              >
                 {description}
               </p>
               <div>
@@ -88,7 +87,7 @@ const Hero = ({ handleOrderPopup }) => {
               </div>
             </div>
             {/* Image section */}
-            <div className="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2 ">
+            <div className="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2">
               <div className="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center">
                 <img
                   data-aos="zoom-in"
@@ -101,13 +100,12 @@ const Hero = ({ handleOrderPopup }) => {
               <div className="flex lg:flex-col lg:top-1/2 lg:-translate-y-1/2 lg:py-2 justify-center gap-4 absolute -bottom-[40px] lg:-right-1 bg-white rounded-full">
                 {ImageList.map((item) => (
                   <img
+                    key={item.id}
                     data-aos="zoom-in"
                     data-aos-once="true"
                     src={item.img}
                     onClick={() => {
-                      setImageId(
-                        item.id === 1 ? Book1 : item.id === 2 ? Book2 : Book3
-                      );
+                      setImageId(item.id === 1 ? Book1 : item.id === 2 ? Book2 : Book3);
                       setTitle(item.title);
                       setDescription(item.description);
                     }}
@@ -120,7 +118,7 @@ const Hero = ({ handleOrderPopup }) => {
           </div>
         </div>
       </div>
-      <hr className=" border-b-4 border-orange-500" />
+      <hr className="border-b-4 border-orange-500" />
     </>
   );
 };

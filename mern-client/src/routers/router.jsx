@@ -12,6 +12,7 @@ import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin/dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
       },
       {
         path: "/admin/dashboard/upload",
@@ -81,5 +82,4 @@ const router = createBrowserRouter([
     element: <Login />,
   },
 ]);
-
 export default router;
