@@ -7,7 +7,7 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("all"); // Default to "all" category
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-books")
+    fetch(`${import.meta.env.VITE_API_URL}/all-books`)
       .then(res => res.json())
       .then(data => setBooks(data));
   }, []);
