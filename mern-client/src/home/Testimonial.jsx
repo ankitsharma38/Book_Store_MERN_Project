@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import me2 from "../assets/me2.png";
-import Gau from "../assets/gaurav.png";
+import Gau from "../assets/Gaurav.png";
 import Malini from "../assets/profile.jpg";
 
 const testimonialData = [
