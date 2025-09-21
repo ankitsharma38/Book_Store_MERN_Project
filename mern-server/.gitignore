@@ -7,11 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
 # Build output
 node_modules
 dist
 dist-ssr
 *.local
+
+# Dependency directories
+/node_modules/
+
+# Environment files
+.env
+.env.*.local
+.env.example
 
 # Editor directories and files
 .vscode/*
@@ -24,11 +38,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Dependencies and config
-/node_modules
-/src/firebase/
-
-# Environment files
-.env
-.env.*.local
-.env.example
+# Firebase (local configs)
+src/firebase/
