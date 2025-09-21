@@ -1,6 +1,6 @@
 import React from "react";
 import BannerCard from "../home/BannerCard";
-import './Banner.css';
+import './banner.css';
 
 const Banner = () => {
   return (
