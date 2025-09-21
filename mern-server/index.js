@@ -27,6 +27,11 @@ async function run() {
 
     const bookCollections = client.db("BookInventory").collection("books");
 
+    // Root route
+    app.get("/", (req, res) => {
+      res.send("Book Store API is running!");
+    });
+
     // Insert a book
     app.post("/upload-book", async (req, res) => {
       const data = req.body;
